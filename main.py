@@ -50,8 +50,16 @@ class HomePage(webapp2.RequestHandler):
         start_template = jinja_env.get_template("html/main.html")
         self.response.write(start_template.render({"signOut": signout_link_html}))
 
+class FinancialPage(webapp2.RequestHandler):
+    def get(self):
+        user = users.get_current_user()
+        signout_link_html = users.create_logout_url('/')
+        start_template = jinja_env.get_template("html/financial.html")
+        self.response.write(start_template.render())
+
 app = webapp2.WSGIApplication([
     ('/', LogInPage),
     ('/register', RegisterPage),
-    ('/home', HomePage)
+    ('/home', HomePage),
+    ('/financial', FinancialPage)
 ], debug=True)
