@@ -52,10 +52,24 @@ class HomePage(webapp2.RequestHandler):
 
 class FinancialPage(webapp2.RequestHandler):
     def get(self):
+        financial_template = jinja_env.get_template("html/financial.html")
+        self.response.write(financial_template.render())
+
+    def post(self):
         user = users.get_current_user()
-        signout_link_html = users.create_logout_url('/')
+        appUser = User(
+            firstName = self.request.get('first_name'),
+            lastName = self.request.get('last_name'),
+            moneySpent = self.request.get('money_spent'),
+            weeklyAllowance = self.request.get('weekly_allowance'),
+            savings = self.request.get('savings'),
+            utilities = self.request.get('utilities'),
+            fun = self.request.get('fun'),
+            email = user.nickname())
+        appUser.put()
         start_template = jinja_env.get_template("html/financial.html")
-        self.response.write(start_template.render())
+        self.response.write(start_template.render({"name": appUser.firstName}))
+
 
 app = webapp2.WSGIApplication([
     ('/', LogInPage),
