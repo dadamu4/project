@@ -1,130 +1,38 @@
-{
+*{
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
-/* Create two equal columns that floats next to each other */
-.column {
-  float: left;
-  width: 50%;
-  padding: 10px;
-  height: 300px; /* Should be removed. Only for demonstration */
+.body{
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
-/* Clear floats after the columns */
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
+.topOfPage{
+  width: 100%;
+  height: 10%;
+  background: blue;
+}
+
+.restOfPage{
+  width: 100%;
+  height: 90%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.column{
+  height: 100%;
+  flex-basis: 30%;
+  background-color:#aba;
 }
 
 
-//Variables
-
-$turqoise: rgb(30, 50, 60);
-$redish: rgb(255,180,150);
-$font: sans-serif;
-
-//Mixins
-
-@mixin border-radius($radius) {
-  border-radius: $radius;
-  -webkit-border-radius: $radius;
-  -moz-border-radius: $radius;
-  -ms-border-radius: $radius;
-  -o-border-radius: $radius;
-}
-
-@mixin transform($val) {
-  -webkit-transform: $val;
-  -moz-transform: $val;
-  -ms-transform: $val;
-  transform: $val;
-}
-
-//Rules
-
-body{
-  background: $turqoise;
-  font-family: $font;
-  font-weight: bold;
-  font-size: 15px;
-}
-
-.button{
-  @include border-radius(20px);
-  @include transform(rotate(-45deg));
-  background: $redish;
-  position: absolute;
-  width: 40px;
-  height: 40px;
-  left: 50%;
-  top: 50%;
-  margin-top: -20px;
-  margin-left: -20px;
-  cursor: pointer; cursor: hand;
-  transition: width 1s ease-in-out,
-              height 1s ease-in-out,
-              transform 1s ease-in-out,
-              border-radius 1s ease-in-out;
-
-  .contents{
-    display: none;
-  }
-}
-
-.trigger{
-  color: lighten($redish, 22%);
-  font-family: $font;
-  font-size: 20px;
-  margin-left: 14px;
-  margin-top: 10px;
-}
-
-.selected{
-  @include transform(translate(-100px,-100px) rotate(0deg));
-  @include border-radius(8px);
-  width: 240px;
-  height: 240px;
-  cursor: auto;
-
-  &:hover{
-    background-color: $redish;
-  }
-}
-
-.contents{
-  padding: 20px;
-}
-
-form{
-  color: lighten( $redish, 30% );
-}
-
-input{
-  border:none;
-  width: 180px;
-  color: lighten( $redish, 20% );
-  background-color: darken( $redish, 5% );
-  font-family: $font;
-  font-size: 15px;
-  padding: 10px;
-  margin: 10px 0;
-	-webkit-appearance: none;
-
-  &:focus{
-    background-color: darken( $redish, 10% );
-    outline:0;
-  }
-}
-
-input.submit{
-  color: lighten( $redish, 30% );
-  background-color: lighten( $redish, 5% );
-  width: 200px;
-  cursor: pointer; cursor: hand;
-  margin-bottom: 0;
-
-  &:hover{
-    background-color: lighten( $redish, 9% );
-  }
+.geezeo-budgets {
+  width: 100%;
+  max-width: 850px;
+  margin: auto;
 }
