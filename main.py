@@ -50,13 +50,24 @@ class HomePage(webapp2.RequestHandler):
         start_template = jinja_env.get_template("html/main.html")
         self.response.write(start_template.render({"signOut": signout_link_html}))
 
+class StockPage(webapp2.RequestHandler):
+    def get(self):
+        stock_template = jinja_env.get_template("html/financial.html")
+        self.response.write(stock_template.render())
+
+    def post(self):
+        user = users.get_current_user()
+        appUser = User(
+            firstName = self.request.get('first_name'),
+            lastName = self.request.get('last_name'),
+            email = user.nickname())
+        appUser.put()
+        start_template = jinja_env.get_template("html/financial.html")
+        self.response.write(start_template.render({"name": appUser.firstName}))
+
 app = webapp2.WSGIApplication([
     ('/', LogInPage),
     ('/register', RegisterPage),
     ('/home', HomePage),
-<<<<<<< HEAD
-])
-=======
-    ('/financial', FinancialPage)
+    ('/stocks', StockPage)
 ], debug=True)
->>>>>>> 630d5f33d34973893b3951e96b2192ff26f2b7db

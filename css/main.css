@@ -10,6 +10,13 @@
   display: flex;
   flex-direction: column;
   text-align: center;
+  font-family: sans-serif;
+}
+
+.body a {
+  text-decoration: none;
+  flex-basis: 30%;
+  color: #A8201A;
 }
 
 .choose {
@@ -19,8 +26,9 @@
 .topOfPage{
   width: 100%;
   height: 16%;
-  background: lightblue;
+  background: #7EB77F;
   padding: 25px;
+  font-family: sans-serif;
 }
 
 .restOfPage{
@@ -30,15 +38,36 @@
   justify-content: space-around;
   padding-right: 30px;
   padding-left: 30px;
+  font-family: sans-serif;
 }
 
 .restOfPage a{
   text-decoration: none;
   flex-basis: 30%;
+  color: #A8201A;
 }
 
 .column{
   height: 100%;
   flex-basis: 30%;
-  background-color:#aba;
+  padding-top: 250px;
+  background-color:#EC9A29;
+  font-family: sans-serif;
+}
+
+.voteButton{
+  height: 100%;
+  flex-basis: 30%;
+  background-color:#fff;
+}
+
+
+.voteButton i{
+  width: 100%;
+  height: 40%;
+  display: flex;
+  justify-content: space-around;
+  padding-top: 200px;
+  padding-bottom: 150px;
+  font-size: 120px;
 }
