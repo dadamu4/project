@@ -8,20 +8,18 @@ class Comment(ndb.Model):
     title = ndb.StringProperty(required = True)
     comment = ndb.StringProperty(required = True)
 
-<<<<<<< HEAD
 class User(ndb.Model):
     email = ndb.StringProperty(required = True)
     firstName = ndb.StringProperty(required = False)
     lastName = ndb.StringProperty(required = False)
     income = ndb.StringProperty(required=True)
-=======
+
 class Financials(ndb.Model):
->>>>>>> 630d5f33d34973893b3951e96b2192ff26f2b7db
-    moneySpent = ndb.StringProperty(required = False)
-    weeklyAllowance = ndb.StringProperty(required = False)
-    savings = ndb.StringProperty(required = False)
-    utilities = ndb.StringProperty(required = False)
-    fun = ndb.StringProperty(required = False)
+    stocks = ndb.StringProperty(required = False, repeated=True)
+    # weeklyAllowance = ndb.StringProperty(required = False)
+    # savings = ndb.StringProperty(required = False)
+    # utilities = ndb.StringProperty(required = False)
+    # fun = ndb.StringProperty(required = False)
 
 class User(ndb.Model):
     email = ndb.StringProperty(required = True)
