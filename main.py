@@ -54,4 +54,9 @@ app = webapp2.WSGIApplication([
     ('/', LogInPage),
     ('/register', RegisterPage),
     ('/home', HomePage),
+<<<<<<< HEAD
 ])
+=======
+    ('/financial', FinancialPage)
+], debug=True)
+>>>>>>> 630d5f33d34973893b3951e96b2192ff26f2b7db

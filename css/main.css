@@ -32,6 +32,11 @@
   padding-left: 30px;
 }
 
+.restOfPage a{
+  text-decoration: none;
+  flex-basis: 30%;
+}
+
 .column{
   height: 100%;
   flex-basis: 30%;
