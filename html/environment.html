@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Environment</title>
+   <link rel="stylesheet" type="text/css" href="../css/main.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.css">
+</head>
+
+<body>
+
+    <div class="topPage">
+      <h2>Let's Knock Your Stocks Off</h2>
+        <canvas id="myChart"></canvas>
+    </div>
+
+    <div class="lesson">
+        <div class="">
+          <h2>Why Invest?</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+            dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+            non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+              dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+              non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+            dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+            non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </div>
+    </div>
+
+    <hr>
+
+  <div class="commentsPortion">
+    {% if not allStockComments %}
+      <p>No comments currently exist. Be the first to add one!</p>
+    {% endif %}
+    {% if allStockComments %}
+      {% for i in allStockComments %}
+        <div class="commentMade">
+          <div class="topHolder">
+            <p>{{i.ownerName}}</p>
+            <p>{{i.time}}</p>
+          </div>
+          <p>{{i.comment}}</p>
+        </div>
+      <hr>
+      {% endfor %}
+    {% endif %}
+
+    <form action="/financial" method="post">
+      <textarea name="commment" rows="8" cols="100" placeholder="Comment"></textarea>
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
+  <script>
+
+    function makeRandomNumber(min, max){
+      return Math.random() * (max - min) + min;
+    }
+
+
+    var ctx = document.getElementById('myChart').getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'line' ,
+        data: {
+            labels: ['12pm', '1pm', '2pm', '3pm', '4pm', '5pm'],
+            datasets: [{
+                label: 'AMZN',
+                data: [makeRandomNumber(900, 2500), makeRandomNumber(900, 2500), makeRandomNumber(900, 2500), makeRandomNumber(900, 2500), makeRandomNumber(900, 2500), makeRandomNumber(900, 2500)],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)'
+                ],
+                borderWidth: 1
+            },{
+                label: 'GOOGL',
+                data: [makeRandomNumber(900, 1600), makeRandomNumber(900, 1600), makeRandomNumber(900, 1600), makeRandomNumber(900, 1600), makeRandomNumber(900, 1600), makeRandomNumber(900, 1600)],
+                backgroundColor: [
+                    'rgba(54, 162, 235, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(54, 162, 235, 1)'
+                ],
+                borderWidth: 1
+            },{
+                label: 'NASDAQ',
+                data: [makeRandomNumber(50, 150), makeRandomNumber(50, 150), makeRandomNumber(50, 150), makeRandomNumber(50, 150), makeRandomNumber(50, 150), makeRandomNumber(50, 150)],
+                backgroundColor: [
+                    'rgba(255, 156, 36, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255, 156, 36, 1)'
+                ],
+                borderWidth: 1
+            },{
+                label: 'TSLA',
+                data: [makeRandomNumber(200, 600), makeRandomNumber(200, 600), makeRandomNumber(200, 600), makeRandomNumber(200, 600), makeRandomNumber(200, 600), makeRandomNumber(200, 600)],
+                backgroundColor: [
+                    'rgba(102, 255, 36, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(102, 255, 36, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    });
+
+    setInterval(function(){
+      removeData(myChart);
+      addData(myChart);
+    }, 5000)
+
+  </script>
+
+</body>
+</html>
