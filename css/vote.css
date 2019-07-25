@@ -1,0 +1,13 @@
+*{
+  margin: 10;
+  padding-left: 20px;
+  padding-right: 20px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.header {
+  background-color: lightpink;
+  font-family: sans-serif;
+  text-align: center;
+}

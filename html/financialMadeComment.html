@@ -34,9 +34,13 @@
     <hr>
 
   <div class="commentsPortion">
-    {% if not allStockComments %}
-      <p>No comments currently exist. Be the first to add one!</p>
-    {% endif %}
+    <div class="commentMade">
+      <div class="topHolder">
+        <p>{{appUser}}</p>
+      </div>
+      <p>{{comment}}</p>
+    </div>
+    <hr>
     {% if allStockComments %}
       {% for i in allStockComments %}
         <div class="commentMade">
@@ -46,7 +50,7 @@
           </div>
           <p>{{i.comment}}</p>
         </div>
-      <hr>
+        <hr>
       {% endfor %}
     {% endif %}
 
