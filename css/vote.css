@@ -11,3 +11,19 @@
   font-family: sans-serif;
   text-align: center;
 }
+
+.commentsPortion {
+  text-align: left;
+}
+
+
+.voting2{
+  display: flex;
+  justify-content: center;
+}
+
+
+.voting{
+  display: flex;
+  justify-content: center;
+}

@@ -2,7 +2,7 @@ import webapp2
 import os
 import jinja2
 import json
-from models.user import User, FinancialComment
+from models.user import User, FinancialComment, VoteComment
 from google.appengine.api import users, urlfetch
 jinja_env = jinja2.Environment(
     loader=jinja2.FileSystemLoader(os.path.dirname(__file__)),
@@ -65,7 +65,7 @@ class StockPage(webapp2.RequestHandler):
         self.response.write(stock_template.render({"allStockComments": allDeStocks}))
 
     def post(self):
-        comment = self.request.get('commment')
+        comment = self.request.get('comment')
         user = users.get_current_user()
         email_address = user.nickname()
         appUser = User.query().filter(User.email == email_address).get()
@@ -77,25 +77,38 @@ class StockPage(webapp2.RequestHandler):
         stock_template = jinja_env.get_template("html/financialMadeComment.html")
         self.response.write(stock_template.render({"allStockComments": allDeStocks, "appUser": appUser.firstName, "comment": comment}))
 
-# class VotePage(webapp2.RequestHandler):
-#     def get(self):
-#         vote_template = jinja_env.get_template("html/vote.html")
-#         self.response.write(vote_template.render())
-#
-#     def post(self):
-#         user = users.get_current_user()
-#         email_address = user.nickname()
-#         appUser = User.query().filter(User.email == email_address).get()
-#         appUser = User(
-#             comments = self.request.get('comment'))
-#         appUser.put()
-#         vote_template = jinja_env.get_template("html/vote.html")
-#         self.response.write(vote_template.render("comment" : appUser.comments))
+class VotePage(webapp2.RequestHandler):
+    def get(self):
+
+        user = users.get_current_user()
+        email_address = user.nickname()
+        appUser = User.query().filter(User.email == email_address).get()
+
+
+        allVoteComments = VoteComment.query().fetch()
+        vote_template = jinja_env.get_template("html/vote.html")
+        self.response.write(vote_template.render({"allVoteComments": allVoteComments}))
+
+
+
+    def post(self):
+        user = users.get_current_user()
+        email_address = user.nickname()
+        appUser = User.query().filter(User.email == email_address).get()
+        comment = self.request.get('comment')
+
+        VoteComment(owner = appUser.key, ownerName = appUser.firstName, comment = comment).put()
+
+        allVoteComments = VoteComment.query().fetch()
+
+        vote_template = jinja_env.get_template("html/voteMadeComment.html")
+        self.response.write(vote_template.render({"allVoteComments": allVoteComments, "appUser": appUser.firstName, "comment" : comment}))
+
 
 app = webapp2.WSGIApplication([
     ('/', LogInPage),
     ('/register', RegisterPage),
     ('/home', HomePage),
     ('/financial', StockPage),
-    # ('/vote', VotePage),
+    ('/vote', VotePage)
 ], debug=True)
