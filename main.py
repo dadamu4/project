@@ -2,7 +2,7 @@ import webapp2
 import os
 import jinja2
 import json
-from models.user import User, Comment
+from models.user import User, FinancialComment
 from google.appengine.api import users, urlfetch
 jinja_env = jinja2.Environment(
     loader=jinja2.FileSystemLoader(os.path.dirname(__file__)),
@@ -53,27 +53,29 @@ class HomePage(webapp2.RequestHandler):
 
 class StockPage(webapp2.RequestHandler):
     def get(self):
-        apiurl = "https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=MSFT&interval=5min&apikey=214DOVCITS6H4K3T"
-        apiresponse= urlfetch.fetch(apiurl).content
-        apijson = json.loads(apiresponse)
+        # apiurl = "https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=MSFT&interval=5min&apikey=214DOVCITS6H4K3T"
+        # apiresponse= urlfetch.fetch(apiurl).content
+        # apijson = json.loads(apiresponse)
+        user = users.get_current_user()
+        email_address = user.nickname()
+        appUser = User.query().filter(User.email == email_address).get()
 
-        for i in apijson["Time Series (5min)"]["3. low"]:
-            print [i]
-
-        # for i in range(1, len(apijson["Time Series (5min)"]) - 1):
-        #     print apijson["Time Series (5min)"][i]["3. low"]
-
+        allDeStocks = FinancialComment.query().fetch()
         stock_template = jinja_env.get_template("html/financial.html")
-        self.response.write(stock_template.render({"stockInfo": apijson}))
+        self.response.write(stock_template.render({"allStockComments": allDeStocks}))
 
     def post(self):
+        comment = self.request.get('commment')
         user = users.get_current_user()
-        appUser = Financials(
-            stocks = self.request.get('stock_name')
-        )
-        appUser.put()
-        stock_template = jinja_env.get_template("html/financial.html")
-        self.response.write(start_template.render())
+        email_address = user.nickname()
+        appUser = User.query().filter(User.email == email_address).get()
+
+        FinancialComment(owner = appUser.key, ownerName = appUser.firstName, comment = comment).put()
+
+        allDeStocks = FinancialComment.query().fetch()
+
+        stock_template = jinja_env.get_template("html/financialMadeComment.html")
+        self.response.write(stock_template.render({"allStockComments": allDeStocks, "appUser": appUser.firstName, "comment": comment}))
 
 class VotePage(webapp2.RequestHandler):
     def get(self):
