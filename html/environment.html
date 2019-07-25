@@ -4,17 +4,15 @@
      <title>Environment</title>
      <link rel="stylesheet" type="text/css" href="../css/environment.css">
      <script src="https://kit.fontawesome.com/a6e87818b4.js"></script>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.css">
   </head>
   <body>
 
     <div class="body">
       <div class="header">
         <h2>
-          Environment Page
+          Get Green
         </h2>
-        <h3>
-          enter stuff AYOKO!!!
-        </h3>
       </div>
 
       <div class="commentsPortion">
@@ -36,7 +34,7 @@
             <hr>
           {% endfor %}
         {% endif %}
-
+        <canvas id="myChart"></canvas>
         <form action="/environment" method="post">
           <textarea name="comment" rows="8" cols="100" placeholder="Comment"></textarea>
           <button type="submit">Submit</button>
@@ -47,5 +45,67 @@
 
 
   <script src="../js/main.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
+  <script>
+
+    function makeRandomNumber(min, max){
+      return Math.random() * (max - min) + min;
+    }
+
+
+    var ctx = document.getElementById('myChart').getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'bar' ,
+        data: {
+            labels: ['12pm', '1pm', '2pm', '3pm', '4pm', '5pm'],
+            datasets: [{
+                label: 'Gas',
+                data: [makeRandomNumber(900, 2500), makeRandomNumber(900, 2500), makeRandomNumber(900, 2500), makeRandomNumber(900, 2500), makeRandomNumber(900, 2500), makeRandomNumber(900, 2500)],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)'
+                ],
+                borderWidth: 1
+            },{
+                label: 'Plastic',
+                data: [makeRandomNumber(900, 1600), makeRandomNumber(900, 1600), makeRandomNumber(900, 1600), makeRandomNumber(900, 1600), makeRandomNumber(900, 1600), makeRandomNumber(900, 1600)],
+                backgroundColor: [
+                    'rgba(54, 162, 235, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(54, 162, 235, 1)'
+                ],
+                borderWidth: 1
+            },{
+                label: 'Electricity',
+                data: [makeRandomNumber(50, 150), makeRandomNumber(50, 150), makeRandomNumber(50, 150), makeRandomNumber(50, 150), makeRandomNumber(50, 150), makeRandomNumber(50, 150)],
+                backgroundColor: [
+                    'rgba(255, 156, 36, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255, 156, 36, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    });
+
+    setInterval(function(){
+      removeData(myChart);
+      addData(myChart);
+    }, 5000)
+
+  </script>
   </body>
 </html>
