@@ -19,21 +19,19 @@
       </div>
 
 
-
       <div class="commentsPortion">
         <div class="commentMade">
           <div class="topHolder">
             <h4>{{appUser}}</h4>
-          </div>
-          <p>
-            {{comment}}
-            <div class="voting2">
-              <button class="add">+</button>
+            <p>
+              {{comment}}
+            </p>
+            <div class="voting">
+              <button class="add"><i class="far fa-arrow-alt-circle-up"></i></button>
               <p class="giveMeOne">0</p>
-              <button class="subtract">-</button>
+              <button class="subtract"><i class="far fa-arrow-alt-circle-down"></i></button>
             </div>
-          </p>
-
+          </div>
         </div>
         <hr>
         {% if not allVoteComments %}
@@ -43,25 +41,25 @@
           {% for i in allVoteComments %}
             <div class="commentMade">
               <div class="topHolder">
-                <h3>{{i.ownerName}}</h3>
+                <h4>{{i.ownerName}}</h4>
               </div>
               <p>{{i.comment}}</p>
                 <div class="voting">
-                  <button class="add">+</button>
+                  <button class="add"><i class="far fa-arrow-alt-circle-up"></i></button>
                   <p class="giveMeOne">0</p>
-                  <button class="subtract">-</button>
+                  <button class="subtract"><i class="far fa-arrow-alt-circle-down"></i></button>
                 </div>
             </div>
             <hr>
           {% endfor %}
         {% endif %}
-    <div>
+    </div>
 
 
       <div class="comments">
         <form action="/vote" method=POST>
           New Topic:
-          <input name="comment" type="text" placeholder="Write the topic you want to discuss">
+          <input class="input" name="comment" type="text" placeholder="Insert the topic you want to discuss">
           <br><br>
           <input type="submit" value="Submit">
         </form>

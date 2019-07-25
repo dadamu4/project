@@ -3,8 +3,7 @@
   padding-left: 20px;
   padding-right: 20px;
   box-sizing: border-box;
-  text-align: center;
-  /* background-color: white; */
+  font-family: sans-serif;
 }
 
 .header {
@@ -15,19 +14,31 @@
   padding-top: 10px;
   padding-bottom: 30px;
   color: white;
+  justify-content: space-between;
+}
+
+.header2 {
+  text-align: right;
 }
 
 
 .comments{
   margin-top: 40px;
+  text-align: center;
 }
 
 .input{
   width: 40%;
+  height: 30px;
+}
+
+input[type="submit"]{
+  width: 10%;
+  height: 4000px;
 }
 
 .commentsPortion {
-  text-align: left;
+  text-align: center;
 }
 
 
@@ -42,17 +53,18 @@
   justify-content: center;
 }
 
-.voting button {
+.add {
   border: none;
   font-size: 20px;
   padding: 0px;
   color: green;
+  background-color: rgba(0,0,0,0);
 }
 
-.voting button2 {
+.subtract {
   border: none;
   font-size: 20px;
   padding: 0px;
   color: red;
-  padding-top: 14px;
+  background-color: rgba(0,0,0,0);
 }
