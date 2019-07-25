@@ -1,8 +1,9 @@
 import webapp2
 import os
 import jinja2
+import json
 from models.user import User, Comment
-from google.appengine.api import users
+from google.appengine.api import users, urlfetch
 jinja_env = jinja2.Environment(
     loader=jinja2.FileSystemLoader(os.path.dirname(__file__)),
     extensions=['jinja2.ext.autoescape'],
@@ -57,17 +58,31 @@ class StockPage(webapp2.RequestHandler):
 
     def post(self):
         user = users.get_current_user()
-        appUser = User(
-            firstName = self.request.get('first_name'),
-            lastName = self.request.get('last_name'),
-            email = user.nickname())
+        appUser = Financials(
+            stocks = self.request.get('stock_name'))
         appUser.put()
-        start_template = jinja_env.get_template("html/financial.html")
-        self.response.write(start_template.render({"name": appUser.firstName}))
+        stock_template = jinja_env.get_template("html/financial.html")
+        self.response.write(start_template.render())
+
+class VotePage(webapp2.RequestHandler):
+    def get(self):
+        vote_template = jinja_env.get_template("html/vote.html")
+        self.response.write(vote_template.render())
+
+    def post(self):
+        user = users.get_current_user()
+        email_address = user.nickname()
+        appUser = User.query().filter(User.email == email_address).get()
+        appUser = User(
+            comments = self.request.get('comment'))
+        appUser.put()
+        vote_template = jinja_env.get_template("html/vote.html")
+        self.response.write(vote_template.render("comment" : appUser.comments))
 
 app = webapp2.WSGIApplication([
     ('/', LogInPage),
     ('/register', RegisterPage),
     ('/home', HomePage),
-    ('/stocks', StockPage)
+    ('/financial', StockPage),
+    ('/vote', VotePage),
 ], debug=True)

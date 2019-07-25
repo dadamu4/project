@@ -5,8 +5,9 @@ import datetime
 
 class Comment(ndb.Model):
     # date = ndb.DatetimeProperty(auto_add_now = True)
-    title = ndb.StringProperty(required = True)
+    # title = ndb.StringProperty(required = True)
     comment = ndb.StringProperty(required = True)
+    owner = ndb.KeyProperty(User)
 
 class User(ndb.Model):
     email = ndb.StringProperty(required = True)
@@ -15,11 +16,11 @@ class User(ndb.Model):
     income = ndb.StringProperty(required=True)
 
 class Financials(ndb.Model):
-    moneySpent = ndb.StringProperty(required = False)
-    weeklyAllowance = ndb.StringProperty(required = False)
-    savings = ndb.StringProperty(required = False)
-    utilities = ndb.StringProperty(required = False)
-    fun = ndb.StringProperty(required = False)
+    stocks = ndb.StringProperty(required = False, repeated=True)
+    # weeklyAllowance = ndb.StringProperty(required = False)
+    # savings = ndb.StringProperty(required = False)
+    # utilities = ndb.StringProperty(required = False)
+    # fun = ndb.StringProperty(required = False)
 
 class User(ndb.Model):
     email = ndb.StringProperty(required = True)
