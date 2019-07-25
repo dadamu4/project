@@ -18,26 +18,17 @@
         </h3>
       </div>
 
-      <div class="comments">
-        <form action="/vote" method=POST>
-          New Topic:
-            <input class="input" name="comment" type="text" placeholder="Write the topic you want to discuss">
-          <br><br>
-          <input type="submit" value="Submit">
-        </form>
-      </div>
-
 
 
       <div class="commentsPortion">
         <div class="commentMade">
           <div class="topHolder">
             <h4>{{appUser}}</h4>
+            <p>
+              {{comment}}
+            </p>
           </div>
-          <p>
-            {{comment}}
-          </p>
-
+<i class="fas fa-arrow-square-up"></i>
         </div>
         <hr>
         {% if not allVoteComments %}
@@ -51,9 +42,10 @@
               </div>
               <p>{{i.comment}}</p>
                 <div class="voting">
-                  <button class="add">+</button>
+                  <button class="add"><i class="far fa-arrow-alt-circle-up" "add"></i></i></button>
                   <p class="giveMeOne">0</p>
-                  <button class="subtract">-</button>
+                  <button2 class="subtract"><i class="far fa-arrow-alt-circle-down"></i></button>
+
                 </div>
             </div>
             <hr>
@@ -61,6 +53,15 @@
         {% endif %}
     <div>
 
+
+      <div class="comments">
+        <form action="/vote" method=POST>
+          New Topic:
+            <input class="input" name="comment" type="text" placeholder="Insert the topic you want to discuss">
+          <br><br>
+          <input type="submit" value="Submit">
+        </form>
+      </div>
 
 
 

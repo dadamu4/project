@@ -23,7 +23,7 @@
 }
 
 .input{
-  width: 30%;
+  width: 40%;
 }
 
 .commentsPortion {
@@ -40,4 +40,19 @@
 .voting{
   display: flex;
   justify-content: center;
+}
+
+.voting button {
+  border: none;
+  font-size: 20px;
+  padding: 0px;
+  color: green;
+}
+
+.voting button2 {
+  border: none;
+  font-size: 20px;
+  padding: 0px;
+  color: red;
+  padding-top: 14px;
 }
