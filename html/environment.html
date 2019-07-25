@@ -58,11 +58,11 @@
 
     var ctx = document.getElementById('myChart').getContext('2d');
     var myChart = new Chart(ctx, {
-        type: 'line' ,
+        type: 'bar' ,
         data: {
             labels: ['12pm', '1pm', '2pm', '3pm', '4pm', '5pm'],
             datasets: [{
-                label: 'AMZN',
+                label: 'Gas',
                 data: [makeRandomNumber(900, 2500), makeRandomNumber(900, 2500), makeRandomNumber(900, 2500), makeRandomNumber(900, 2500), makeRandomNumber(900, 2500), makeRandomNumber(900, 2500)],
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)'
@@ -72,7 +72,7 @@
                 ],
                 borderWidth: 1
             },{
-                label: 'GOOGL',
+                label: 'Plastic',
                 data: [makeRandomNumber(900, 1600), makeRandomNumber(900, 1600), makeRandomNumber(900, 1600), makeRandomNumber(900, 1600), makeRandomNumber(900, 1600), makeRandomNumber(900, 1600)],
                 backgroundColor: [
                     'rgba(54, 162, 235, 0.2)'
