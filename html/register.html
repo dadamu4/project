@@ -2,14 +2,19 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Register</title>
+    <link rel="stylesheet" type="text/css" href="../css/main.css">
   </head>
-  <body>
+  <body class="registerBody">
 
-  <form method="post" action="/register">
-    <input type="text" name="first_name">
-    <input type="text" name="last_name">
-    <input type="submit">
+  <form class="registerForm" method="post" action="/register">
+    <div class="">
+      <p>First Name:</p><input type="text" name="first_name" required>
+    </div>
+    <div class="">
+      <p>Last Name:</p><input type="text" name="last_name" required>
+    </div>
+    <button type="submit">Register</button>
   </form>
 
   </body>
