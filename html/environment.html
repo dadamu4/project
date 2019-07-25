@@ -1,61 +1,53 @@
 <!DOCTYPE html>
 <html>
-<head>
-   <title>Environment</title>
-   <link rel="stylesheet" type="text/css" href="../css/main.css">
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.css">
-</head>
+  <head>
+     <title>Environment</title>
+     <link rel="stylesheet" type="text/css" href="../css/environment.css">
+     <script src="https://kit.fontawesome.com/a6e87818b4.js"></script>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.css">
+  </head>
+  <body>
 
-<body>
+    <div class="body">
+      <div class="header">
+        <h2>
+          Environment Page
+        </h2>
+        <h3>
+          enter stuff AYOKO!!!
+        </h3>
+      </div>
 
-    <div class="topPage">
-      <h2>Let's Knock Your Stocks Off</h2>
-        <canvas id="myChart"></canvas>
-    </div>
-
-    <div class="lesson">
-        <div class="">
-          <h2>Why Invest?</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-            dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
-            non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-              dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
-              non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-            dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
-            non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        </div>
-    </div>
-
-    <hr>
-
-  <div class="commentsPortion">
-    {% if not allStockComments %}
-      <p>No comments currently exist. Be the first to add one!</p>
-    {% endif %}
-    {% if allStockComments %}
-      {% for i in allStockComments %}
+      <div class="commentsPortion">
         <div class="commentMade">
           <div class="topHolder">
-            <p>{{i.ownerName}}</p>
-            <p>{{i.time}}</p>
+            <p>{{appUser}}</p>
           </div>
-          <p>{{i.comment}}</p>
+          <p>{{comment}}</p>
         </div>
-      <hr>
-      {% endfor %}
-    {% endif %}
+        <hr>
+        {% if allEnvComments %}
+          {% for i in allEnvComments %}
+            <div class="commentMade">
+              <div class="topHolder">
+                <p>{{i.ownerName}}</p>
+              </div>
+              <p>{{i.comment}}</p>
+            </div>
+            <hr>
+          {% endfor %}
+        {% endif %}
 
-    <form action="/financial" method="post">
-      <textarea name="commment" rows="8" cols="100" placeholder="Comment"></textarea>
-      <button type="submit">Submit</button>
-    </form>
-  </div>
+        <form action="/environment" method="post">
+          <textarea name="comment" rows="8" cols="100" placeholder="Comment"></textarea>
+          <button type="submit">Submit</button>
+        </form>
+      </div>
 
+
+
+
+  <script src="../js/main.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
   <script>
 
@@ -128,6 +120,5 @@
     }, 5000)
 
   </script>
-
-</body>
+  </body>
 </html>

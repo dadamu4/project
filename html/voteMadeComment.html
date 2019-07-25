@@ -21,7 +21,7 @@
       <div class="comments">
         <form action="/vote" method=POST>
           New Topic:
-            <input class="input" name="comment" type="text" placeholder="Write the topic you want to discuss">
+          <input name="comment" type="text" placeholder="Write the topic you want to discuss">
           <br><br>
           <input type="submit" value="Submit">
         </form>
@@ -36,6 +36,11 @@
           </div>
           <p>
             {{comment}}
+            <div class="voting2">
+              <button class="add">+</button>
+              <p class="giveMeOne">0</p>
+              <button class="subtract">-</button>
+            </div>
           </p>
 
         </div>
@@ -47,7 +52,7 @@
           {% for i in allVoteComments %}
             <div class="commentMade">
               <div class="topHolder">
-                <h4>{{i.ownerName}}</h4>
+                <h3>{{i.ownerName}}</h3>
               </div>
               <p>{{i.comment}}</p>
                 <div class="voting">
@@ -60,8 +65,6 @@
           {% endfor %}
         {% endif %}
     <div>
-
-
 
 
   <script src="../js/main.js"></script>

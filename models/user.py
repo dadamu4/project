@@ -3,12 +3,6 @@ from google.appengine.api import users
 
 import datetime
 
-class Comment(ndb.Model):
-    # date = ndb.DatetimeProperty(auto_add_now = True)
-    # title = ndb.StringProperty(required = True)
-    comment = ndb.StringProperty(required = True)
-    # owner = ndb.KeyProperty(User)
-
 class User(ndb.Model):
     email = ndb.StringProperty(required = True)
     firstName = ndb.StringProperty(required = False)
@@ -19,6 +13,21 @@ class FinancialComment(ndb.Model):
     owner = ndb.KeyProperty(User)
     ownerName = ndb.StringProperty(required = True)
     comment = ndb.StringProperty(required = True)
+
+class VoteComment(ndb.Model):
+    # date = ndb.DatetimeProperty(auto_add_now = True)
+    # title = ndb.StringProperty(required = True)
+    owner = ndb.KeyProperty(User)
+    comment = ndb.StringProperty(required = True)
+    ownerName = ndb.StringProperty(required = True)
+    vote = ndb.IntegerProperty(required=False)
+
+class EnvComment(ndb.Model):
+    # date = ndb.DatetimeProperty(auto_add_now = True)
+    # title = ndb.StringProperty(required = True)
+    owner = ndb.KeyProperty(User)
+    comment = ndb.StringProperty(required = True)
+    ownerName = ndb.StringProperty(required = True)
 
 class Financials(ndb.Model):
     owner = ndb.KeyProperty(User)

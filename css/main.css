@@ -34,12 +34,27 @@ hr{
 
 .topOfPage{
   width: 100%;
-  background: #7EB77F;
+  background: #3D3B30;
+  color: #FEFDFF;
   padding: 25px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   font-family: sans-serif;
+}
+
+.topOfPage a{
+  padding: 10px 20px;
+  border: 2px solid #FEFDFF;
+  color: #FEFDFF;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+
+.topOfPage a:hover{
+  background-color: #FEFDFF;
+  color: #3D3B30;
+  transition: 0.3s;
 }
 
 .restOfPage{
@@ -64,6 +79,18 @@ hr{
   background-color:#EC9A29;
   border-radius: 5px;
   font-family: sans-serif;
+}
+
+.columnInCol{
+  height: 100%;
+}
+
+.makeMeVisible{
+  visibility: hidden;
+}
+
+.makeMeVisible:hover{
+  visibility: visible;
 }
 
 .voteButton{

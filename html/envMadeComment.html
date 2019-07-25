@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+     <title>Environment</title>
+     <link rel="stylesheet" type="text/css" href="../css/environment.css">
+     <script src="https://kit.fontawesome.com/a6e87818b4.js"></script>
+  </head>
+  <body>
+
+    <div class="body">
+      <div class="header">
+        <h2>
+          Environment Page
+        </h2>
+        <h3>
+          enter stuff AYOKO!!!
+        </h3>
+      </div>
+
+
+      <div class="commentsPortion">
+        <div class="commentMade">
+          <div class="topHolder">
+            <p>{{appUser}}</p>
+          </div>
+          <p>{{comment}}</p>
+        </div>
+        <hr>
+        {% if allEnvComments %}
+          {% for i in allEnvComments %}
+            <div class="commentMade">
+              <div class="topHolder">
+                <p>{{i.ownerName}}</p>
+              </div>
+              <p>{{i.comment}}</p>
+            </div>
+            <hr>
+          {% endfor %}
+        {% endif %}
+
+        <form action="/environment" method="post">
+          <textarea name="comment" rows="8" cols="100" placeholder="Comment"></textarea>
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+
+
+
+  <script src="../js/main.js"></script>
+  </body>
+</html>
