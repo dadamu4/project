@@ -14,6 +14,14 @@ class FinancialComment(ndb.Model):
     ownerName = ndb.StringProperty(required = True)
     comment = ndb.StringProperty(required = True)
 
+class VoteComment(ndb.Model):
+    # date = ndb.DatetimeProperty(auto_add_now = True)
+    # title = ndb.StringProperty(required = True)
+    owner = ndb.KeyProperty(User)
+    comment = ndb.StringProperty(required = True)
+    ownerName = ndb.StringProperty(required = True)
+    vote = ndb.IntegerProperty(required=False)
+
 class Financials(ndb.Model):
     owner = ndb.KeyProperty(User)
     stocks = ndb.StringProperty(required = False, repeated=True)

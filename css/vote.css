@@ -1,5 +1,29 @@
 *{
-  margin: 0;
-  padding: 0;
+  margin: 10;
+  padding-left: 20px;
+  padding-right: 20px;
   box-sizing: border-box;
+  text-align: center;
+}
+
+.header {
+  background-color: lightpink;
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.commentsPortion {
+  text-align: left;
+}
+
+
+.voting2{
+  display: flex;
+  justify-content: center;
+}
+
+
+.voting{
+  display: flex;
+  justify-content: center;
 }
