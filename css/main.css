@@ -28,21 +28,26 @@ hr{
   padding: 30px;
 }
 
+.divWithBulb{
+  display: flex;
+}
+
 .topOfPage{
   width: 100%;
-  height: 16%;
   background: #7EB77F;
   padding: 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   font-family: sans-serif;
 }
 
 .restOfPage{
   width: 100%;
   height: 90%;
+  padding: 30px;
   display: flex;
   justify-content: space-around;
-  padding-right: 30px;
-  padding-left: 30px;
   font-family: sans-serif;
 }
 
@@ -57,6 +62,7 @@ hr{
   flex-basis: 30%;
   padding-top: 250px;
   background-color:#EC9A29;
+  border-radius: 5px;
   font-family: sans-serif;
 }
 
