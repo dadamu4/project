@@ -10,6 +10,18 @@
   background-color: lightpink;
   font-family: sans-serif;
   text-align: center;
+  display: flex;
+  padding-top: 10px;
+  padding-bottom: 30px;
+}
+
+
+.comments{
+  margin-top: 40px;
+}
+
+.input{
+  width: 30%;
 }
 
 .commentsPortion {
