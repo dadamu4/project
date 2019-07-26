@@ -23,15 +23,12 @@
       </div>
     </div>
 
-      <div class="header">
-          <h3>Environmental Statistics</h3>
-          <canvas id="myChart"></canvas>
-          <form action="/environment" method="post">
-            <textarea name="comment" rows="8" cols="100" placeholder="Comment"></textarea>
-            <button type="submit">Submit</button>
-          </form>
-      </div>
-
+      <canvas id="myChart"></canvas>
+      <form action="/environment" method="post">
+        <textarea name="comment" rows="8" cols="100" placeholder="Comment"></textarea>
+        <br></br>
+        <button type="submit">Submit</button>
+      </form>
 
       <div class="commentsPortion">
         <div class="commentMade">
@@ -75,6 +72,7 @@
                 label: 'Gas (Liters)',
                 data: ["500"],
                 label: 'Gas',
+                data: [makeRandomNumber(900, 2500), makeRandomNumber(900, 2500), makeRandomNumber(900, 2500), makeRandomNumber(900, 2500), makeRandomNumber(900, 2500), makeRandomNumber(900, 2500)],
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)'
                 ],
@@ -86,6 +84,8 @@
                 label: 'Plastic (Pounds)',
                 data: ["185"],
                 label: 'Plastic',
+                data: [makeRandomNumber(900, 1600), makeRandomNumber(900, 1600), makeRandomNumber(900, 1600), makeRandomNumber(900, 1600), makeRandomNumber(900, 1600), makeRandomNumber(900, 1600)],
+                backgroundColor: [
                     'rgba(54, 162, 235, 0.2)'
                 ],
                 borderColor: [
@@ -96,6 +96,8 @@
                 label: 'Electricity (Kwh)',
                 data: ["10,766"],
                 label: 'Electricity',
+                data: [makeRandomNumber(50, 150), makeRandomNumber(50, 150), makeRandomNumber(50, 150), makeRandomNumber(50, 150), makeRandomNumber(50, 150), makeRandomNumber(50, 150)],
+
                 backgroundColor: [
                     'rgba(255, 156, 36, 0.2)'
                 ],

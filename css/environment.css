@@ -23,8 +23,8 @@
 
 .divWithBulb h1{
   color: white;
-  width: 200%;
   border-radius: 0px;
+  text-decoration: none;
 }
 
 .divWithBulb h1 span{
