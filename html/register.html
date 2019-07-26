@@ -7,15 +7,17 @@
   </head>
   <body class="registerBody">
 
-  <form class="registerForm" method="post" action="/register">
-    <div class="">
-      <p>First Name:</p><input type="text" name="first_name" required>
+    <div class="registerDivForm">
+      <form class="registerForm" method="post" action="/register">
+        <div class="">
+          <p>First Name:</p><input type="text" name="first_name" required>
+        </div>
+        <div class="">
+          <p>Last Name:</p><input type="text" name="last_name" required>
+        </div>
+        <button type="submit">Register</button>
+      </form>
     </div>
-    <div class="">
-      <p>Last Name:</p><input type="text" name="last_name" required>
-    </div>
-    <button type="submit">Register</button>
-  </form>
 
   </body>
 </html>

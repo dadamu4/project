@@ -10,10 +10,9 @@
 
     <div class="body">
       <div class="header">
-        <h2>
-          Get Green
-        </h2>
       </div>
+
+      <canvas id="myChart"></canvas>
 
       <div class="commentsPortion">
         <div class="commentMade">
@@ -34,7 +33,6 @@
             <hr>
           {% endfor %}
         {% endif %}
-        <canvas id="myChart"></canvas>
         <form action="/environment" method="post">
           <textarea name="comment" rows="8" cols="100" placeholder="Comment"></textarea>
           <button type="submit">Submit</button>
@@ -57,10 +55,10 @@
     var myChart = new Chart(ctx, {
         type: 'bar' ,
         data: {
-            labels: ['12pm', '1pm', '2pm', '3pm', '4pm', '5pm'],
+            labels: ['Things People Use'],
             datasets: [{
                 label: 'Gas',
-                data: [makeRandomNumber(900, 2500), makeRandomNumber(900, 2500), makeRandomNumber(900, 2500), makeRandomNumber(900, 2500), makeRandomNumber(900, 2500), makeRandomNumber(900, 2500)],
+                data: [makeRandomNumber(900, 2500)],
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)'
                 ],
@@ -70,7 +68,7 @@
                 borderWidth: 1
             },{
                 label: 'Plastic',
-                data: [makeRandomNumber(900, 1600), makeRandomNumber(900, 1600), makeRandomNumber(900, 1600), makeRandomNumber(900, 1600), makeRandomNumber(900, 1600), makeRandomNumber(900, 1600)],
+                data: [makeRandomNumber(900, 1600)],
                 backgroundColor: [
                     'rgba(54, 162, 235, 0.2)'
                 ],
@@ -80,7 +78,7 @@
                 borderWidth: 1
             },{
                 label: 'Electricity',
-                data: [makeRandomNumber(50, 150), makeRandomNumber(50, 150), makeRandomNumber(50, 150), makeRandomNumber(50, 150), makeRandomNumber(50, 150), makeRandomNumber(50, 150)],
+                data: [makeRandomNumber(50, 150)],
                 backgroundColor: [
                     'rgba(255, 156, 36, 0.2)'
                 ],
