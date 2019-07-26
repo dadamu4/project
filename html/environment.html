@@ -8,12 +8,30 @@
   </head>
   <body>
 
+
     <div class="body">
-      <div class="header">
-        <h2>
-          Get Green
-        </h2>
+      <div class="topOfPage">
+          <div class="divWithBulb">
+              <div class="GGbutton">
+                <a href="/home"><h1>GET <span>GREEN</span></h1></a>
+              </div>
+          </div class="divWithBulb2">
+          <h2>Let's Knock Your Gas Off</h2>
+          <div>
+            <h4><a class="hoverMe" href="{{signOut}}">Log out</a></h4>
+          </div>
       </div>
+    </div>
+
+      <div class="header">
+          <h3>Environmental Statistics</h3>
+          <canvas id="myChart"></canvas>
+          <form action="/environment" method="post">
+            <textarea name="comment" rows="8" cols="100" placeholder="Comment"></textarea>
+            <button type="submit">Submit</button>
+          </form>
+      </div>
+
 
       <div class="commentsPortion">
         <div class="commentMade">
@@ -34,11 +52,6 @@
             <hr>
           {% endfor %}
         {% endif %}
-        <canvas id="myChart"></canvas>
-        <form action="/environment" method="post">
-          <textarea name="comment" rows="8" cols="100" placeholder="Comment"></textarea>
-          <button type="submit">Submit</button>
-        </form>
       </div>
 
 
