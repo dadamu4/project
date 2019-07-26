@@ -102,18 +102,18 @@ class VotePage(webapp2.RequestHandler):
         vote_template = jinja_env.get_template("html/voteMadeComment.html")
         self.response.write(vote_template.render({"allVoteComments": allVoteComments, "appUser": appUser.firstName, "comment" : comment}))
 
-# class BeenVotePage(webapp2.RequestHandler):
-#     def post(self):
-#         user = users.get_current_user()
-#         email_address = user.nickname()
-#         appUser = User.query().filter(User.email == email_address).get()
-#         comment = self.request.get('comment')
-#
-#         VoteComment(owner = appUser.key, ownerName = appUser.firstName, comment = comment, vote = 0).put()
-#
-#         allVoteComments = VoteComment.query().fetch()
-#         vote_template = jinja_env.get_template("html/voteMadeComment.html")
-#         self.response.write(vote_template.render({"allVoteComments": allVoteComments, "appUser": appUser.firstName, "comment" : comment}))
+class BeenVotePage(webapp2.RequestHandler):
+    def post(self):
+        user = users.get_current_user()
+        email_address = user.nickname()
+        appUser = User.query().filter(User.email == email_address).get()
+        comment = self.request.get('comment')
+
+        VoteComment(owner = appUser.key, ownerName = appUser.firstName, comment = comment, vote = 0).put()
+
+        allVoteComments = VoteComment.query().fetch()
+        vote_template = jinja_env.get_template("html/voteMadeComment.html")
+        self.response.write(vote_template.render({"allVoteComments": allVoteComments, "appUser": appUser.firstName, "comment" : comment}))
 
 class EnvironmentPage(webapp2.RequestHandler):
     def get(self):
