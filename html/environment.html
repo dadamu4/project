@@ -10,9 +10,10 @@
 
     <div class="body">
       <div class="header">
+        <h2>
+          Get Green
+        </h2>
       </div>
-
-      <canvas id="myChart"></canvas>
 
       <div class="commentsPortion">
         <div class="commentMade">
@@ -33,6 +34,7 @@
             <hr>
           {% endfor %}
         {% endif %}
+        <canvas id="myChart"></canvas>
         <form action="/environment" method="post">
           <textarea name="comment" rows="8" cols="100" placeholder="Comment"></textarea>
           <button type="submit">Submit</button>
@@ -55,10 +57,15 @@
     var myChart = new Chart(ctx, {
         type: 'bar' ,
         data: {
-            labels: ['Things People Use'],
+            labels: ['12pm', '1pm', '2pm', '3pm', '4pm', '5pm'],
             datasets: [{
+<<<<<<< HEAD
                 label: 'Gas (Liters)',
                 data: ["500"],
+=======
+                label: 'Gas',
+                data: [makeRandomNumber(900, 2500), makeRandomNumber(900, 2500), makeRandomNumber(900, 2500), makeRandomNumber(900, 2500), makeRandomNumber(900, 2500), makeRandomNumber(900, 2500)],
+>>>>>>> b5f43129d4b1bcc6a5cd0f7e3d5e78e83c098e17
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)'
                 ],
@@ -67,8 +74,13 @@
                 ],
                 borderWidth: 1
             },{
+<<<<<<< HEAD
                 label: 'Plastic (Pounds)',
                 data: ["185"],
+=======
+                label: 'Plastic',
+                data: [makeRandomNumber(900, 1600), makeRandomNumber(900, 1600), makeRandomNumber(900, 1600), makeRandomNumber(900, 1600), makeRandomNumber(900, 1600), makeRandomNumber(900, 1600)],
+>>>>>>> b5f43129d4b1bcc6a5cd0f7e3d5e78e83c098e17
                 backgroundColor: [
                     'rgba(54, 162, 235, 0.2)'
                 ],
@@ -77,8 +89,13 @@
                 ],
                 borderWidth: 1
             },{
+<<<<<<< HEAD
                 label: 'Electricity (Kwh)',
                 data: ["10,766"],
+=======
+                label: 'Electricity',
+                data: [makeRandomNumber(50, 150), makeRandomNumber(50, 150), makeRandomNumber(50, 150), makeRandomNumber(50, 150), makeRandomNumber(50, 150), makeRandomNumber(50, 150)],
+>>>>>>> b5f43129d4b1bcc6a5cd0f7e3d5e78e83c098e17
                 backgroundColor: [
                     'rgba(255, 156, 36, 0.2)'
                 ],
