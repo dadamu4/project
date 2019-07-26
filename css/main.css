@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+a{
+  text-decoration: none;
+}
+
 hr{
   width: 60%;
   margin: 0 auto 10px;
@@ -45,6 +49,10 @@ ul{
   display: flex;
 }
 
+.divWithBulb{
+  color: #FEFDFF;
+}
+
 .topOfPage{
   width: 100%;
   background: #3D3B30;
@@ -56,15 +64,15 @@ ul{
   font-family: sans-serif;
 }
 
-.topOfPage a{
+.hoverMe{
   padding: 10px 20px;
   border: 2px solid #FEFDFF;
-  color: #FEFDFF;
+  color: #FEFDFF !important;
   border-radius: 5px;
   transition: 0.3s;
 }
 
-.topOfPage a:hover{
+.hoverMe:hover{
   background-color: #FEFDFF;
   color: #3D3B30;
   transition: 0.3s;

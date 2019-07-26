@@ -71,6 +71,8 @@ class StockPage(webapp2.RequestHandler):
         email_address = user.nickname()
         appUser = User.query().filter(User.email == email_address).get()
 
+        print appUser.firstName
+
         FinancialComment(owner = appUser.key, ownerName = appUser.firstName, comment = comment).put()
 
         allDeStocks = FinancialComment.query().fetch()
