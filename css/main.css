@@ -9,9 +9,8 @@ hr{
   margin: 0 auto 10px;
 }
 
-ol{
-  margin: 0 auto;
-  width: 250px;
+ul{
+  margin-left: 30px;
 }
 
 .divWithBulb h1 span{
@@ -173,10 +172,6 @@ ol{
   flex-direction: column;
 }
 
-.lesson div{
-  width: 100%;
-}
-
 .lesson div h2{
   padding-bottom: 10px;
   text-align: center;
@@ -315,6 +310,42 @@ ol{
 
 .howToInvest{
   margin-top:20px;
+}
+
+.divInLesson{
+  width: 800px;
+  margin: 0 auto;
+}
+
+.divInLesson h2{
+  font-size: 30px;
+}
+
+.linksDiv{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.linksDiv h2{
+  margin-top: 30px;
+}
+
+.divInLesson p, .divInLesson ul, .divInLesson a{
+  padding: 5px 0;
+  font-size: 25px;
+}
+
+.linksDiv a{
+  color: #3D3B30;
+  transition: 0.3s;
+  font-size: 20px;
+}
+
+.linksDiv a:hover{
+  color: #B02E0C;
+  transition: 0.3s;
 }
 
 @keyframes movingCoin{
