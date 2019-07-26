@@ -7,24 +7,36 @@
   </head>
   <body>
 
+    <div class="body2">
+      <div class="topOfPage">
+          <div class="divWithBulb">
+            <a href="/home"><h1>GET <span>GREEN</span></h1></a>
+          </div class="header2">
+          <h2>Want to create a <span>green room</span> to discuss new topics?</h2>
+          <div>
+            <h4><a class="hoverMe" href="{{signOut}}">Log out</a></h4>
+          </div>
+      </div>
+
     <div class="body">
       <div class="header">
-        <h2>
-          Want to create a room to discuss new topics?
-        </h2>
-        <h3>
-          Look through other suggestions and upvote if you see what you like.
-          If you want a new topic, suggest your own!
-        </h3>
+        <!-- <h2>
+          Want to create a <span>green room</span> to discuss new topics?
+        </h2> -->
+            <h3>
+              Look through other suggestions and upvote if you see what you like.
+              If you want a new topic, suggest your own!
+            </h3>
       </div>
+    </div>
 
 
       <div class="commentsPortion">
         <div class="commentMade">
           <div class="topHolder">
-            <h4>{{appUser}}</h4>
+            <h4>User: {{appUser}}</h4>
             <p>
-              {{comment}}
+              Topic: {{comment}}
             </p>
             <div class="voting">
               <button class="add"><i class="far fa-arrow-alt-circle-up"></i></button>
@@ -41,9 +53,9 @@
           {% for i in allVoteComments %}
             <div class="commentMade">
               <div class="topHolder">
-                <h4>{{i.ownerName}}</h4>
+                <h4>User: {{i.ownerName}}</h4>
               </div>
-              <p>{{i.comment}}</p>
+              <p>Topic: {{i.comment}}</p>
                 <div class="voting">
                   <button class="add"><i class="far fa-arrow-alt-circle-up"></i></button>
                   <p class="giveMeOne">0</p>
@@ -59,7 +71,7 @@
       <div class="comments">
         <form action="/vote" method=POST>
           New Topic:
-          <input class="input" name="comment" type="text" placeholder="Insert the topic you want to discuss">
+          <input class="input" name="comment" type="text" placeholder="Insert the greentopic you want to discuss">
           <br><br>
           <input type="submit" value="Submit">
         </form>

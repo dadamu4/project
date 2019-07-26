@@ -59,10 +59,11 @@ class StockPage(webapp2.RequestHandler):
         user = users.get_current_user()
         email_address = user.nickname()
         appUser = User.query().filter(User.email == email_address).get()
+        signout_link_html = users.create_logout_url('/')
 
         allDeStocks = FinancialComment.query().fetch()
         stock_template = jinja_env.get_template("html/financial.html")
-        self.response.write(stock_template.render({"allStockComments": allDeStocks}))
+        self.response.write(stock_template.render({"allStockComments": allDeStocks, "signOut": signout_link_html}))
 
     def post(self):
         comment = self.request.get('comment')
@@ -83,11 +84,12 @@ class VotePage(webapp2.RequestHandler):
         user = users.get_current_user()
         email_address = user.nickname()
         appUser = User.query().filter(User.email == email_address).get()
+        signout_link_html = users.create_logout_url('/')
 
 
         allVoteComments = VoteComment.query().fetch()
         vote_template = jinja_env.get_template("html/vote.html")
-        self.response.write(vote_template.render({"allVoteComments": allVoteComments}))
+        self.response.write(vote_template.render({"allVoteComments": allVoteComments, "signOut": signout_link_html}))
 
 
 
@@ -110,7 +112,6 @@ class EnvironmentPage(webapp2.RequestHandler):
         user = users.get_current_user()
         email_address = user.nickname()
         appUser = User.query().filter(User.email == email_address).get()
-
 
         allEnvComments = EnvComment.query().fetch()
         env_template = jinja_env.get_template("html/environment.html")
