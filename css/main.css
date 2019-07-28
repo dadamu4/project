@@ -64,7 +64,7 @@ ul{
   font-family: sans-serif;
 }
 
-.hoverMe{
+/* .topOfPage a{
   padding: 10px 20px;
   border: 2px solid #FEFDFF;
   color: #FEFDFF !important;
@@ -75,6 +75,20 @@ ul{
 .hoverMe:hover{
   background-color: #FEFDFF;
   color: #3D3B30 !important;
+  transition: 0.3s;
+} */
+
+.topOfPage .hoverMe{
+  padding: 10px 20px;
+  border: 2px solid #FEFDFF;
+  color: #FEFDFF;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+
+.topOfPage .hoverMe:hover{
+  background-color: #FEFDFF;
+  color: #3D3B30;
   transition: 0.3s;
 }
 
@@ -175,6 +189,21 @@ ul{
 
 .topPage h2{
   margin-bottom: 10px;
+}
+
+.topPage h3{
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.GGbutton a{
+  width: 500%;
+  border: none;
+  padding: 0px;
+}
+
+.GGbutton h1{
+  color: white;
 }
 
 .lesson{
@@ -328,6 +357,11 @@ ul{
 .divInLesson{
   width: 800px;
   margin: 0 auto;
+}
+
+.divInLesson ul{
+  width: 800px;
+  text-align: left;
 }
 
 .divInLesson h2{
