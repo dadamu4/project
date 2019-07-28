@@ -1,51 +1,156 @@
 <!DOCTYPE html>
 <html>
-  <head>
-     <title>Environment</title>
-     <link rel="stylesheet" type="text/css" href="../css/environment.css">
-     <script src="https://kit.fontawesome.com/a6e87818b4.js"></script>
-  </head>
-  <body>
+<head>
+   <title>Stocks</title>
+   <link rel="stylesheet" type="text/css" href="../css/main.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.css">
+</head>
 
-    <div class="body">
-      <div class="header">
-        <h2>
-          Environment Page
-        </h2>
-        <h3>
-          enter stuff AYOKO!!!
-        </h3>
+<body>
+
+  <div class="body2">
+    <div class="topOfPage">
+        <div class="divWithBulb">
+          <a href="/home"><h1>GET <span>GREEN</span></h1></a>
+        </div>
+        <div class="header">
+        <h2>Let's Knock Your Stocks Off</h2>
       </div>
+        <div>
+          <h4><a class="hoverMe" href="{{signOut}}">Log out</a></h4>
+        </div>
+    </div>
 
+    <div class="topPage">
+        <canvas id="myChart"></canvas>
+    </div>
 
-      <div class="commentsPortion">
+    <div class="lesson">
+        <div class="divInLesson">
+          <h2>Effects Gas Consumption</h2>
+          <p>The average person drives their car to work, go around the corner, or travel a short distance. The amount of gas we use
+             can add up relatively fast. This can greatly dammage the environment as it produces more greenhouse gases, leading to more
+            global warming.</p>
+            <p>We can reduce this by:</p>
+            <ul>
+              <li>Walking more</li>
+              <li>Investing in an electric car</li>
+              <li>Carpooling</li>
+            </ul>
+        </div>
+        <div class="divInLesson howToInvest">
+          <h2>Effects Of Electricity</h2>
+          <p>The main issue is that the production of electricity also produces a big amount of CO2. This goes back to the previous
+              point of global warmimg.</p>
+          <p>We can reduce this by:</p>
+          <ul>
+            <li>Turning off the lights in unused rooms</li>
+            <li>Investing in solar panels</li>
+          </ul>
+        </div>
+        <div class="divInLesson howToInvest">
+          <h2>Effects Of Plastic</h2>
+          <p>Plastic has come to be very useful, but the problem is that it stays around for generations upon generations. This is terrible
+             as we keep producing more and more, but can't get rid of it at the same rate. The plastic gets thrown into the ocean and hurts
+             the ecosystem; small plastic particles float around us and get into our lungs; and the production of plastic also generates
+             CO2.</p>
+         <p>We can reduce this by:</p>
+         <ul>
+           <li>Using fewer plastic products</li>
+           <li>Use reusable bags instead of plastic bags</li>
+           <li>The plastic that does get used, cut it so other organisms can't get stuck</li>
+           <li>Recylce to reduce the amount of waste</li>
+         </ul>
+        </div>
+        <div class="divInLesson howToInvest linksDiv">
+          <h2>Useful Links</h2>
+          <a href="https://www.epa.gov/energy/learn-about-energy-and-its-impact-environment">Electricity And The Environment</a>
+          <a href="https://www.eia.gov/energyexplained/index.php?page=gasoline_environment">Gasoline And The Environment</a>
+          <a href="https://www.unenvironment.org/interactive/beat-plastic-pollution/">Plastic And The Environment</a>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="commentsPortion">
+      <div class="commentMade">
+        <div class="topHolder">
+          <p>{{appUser}}</p>
+        </div>
+        <p>{{comment}}</p>
+      </div>
+    <hr>
+    {% if allEnvComments %}
+      {% for i in allEnvComments %}
         <div class="commentMade">
           <div class="topHolder">
-            <p>{{appUser}}</p>
+            <p>{{i.ownerName}}</p>
+            <p>{{i.time}}</p>
           </div>
-          <p>{{comment}}</p>
+          <p>{{i.comment}}</p>
         </div>
         <hr>
-        {% if allEnvComments %}
-          {% for i in allEnvComments %}
-            <div class="commentMade">
-              <div class="topHolder">
-                <p>{{i.ownerName}}</p>
-              </div>
-              <p>{{i.comment}}</p>
-            </div>
-            <hr>
-          {% endfor %}
-        {% endif %}
+      {% endfor %}
+    {% endif %}
 
-        <form action="/environment" method="post">
-          <textarea name="comment" rows="8" cols="100" placeholder="Comment"></textarea>
-          <button type="submit">Submit</button>
-        </form>
-      </div>
+    <form action="/environment" method="post">
+      <textarea name="comment" rows="8" cols="100" placeholder="Comment"></textarea>
+      <button type="submit">Submit</button>
+    </form>
+  </div>
 
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
+  <script>
 
+    var ctx = document.getElementById('myChart').getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'bar' ,
+        data: {
+            labels: ['Resources Used Per Person Per Year'],
+            datasets: [{
+                label: 'Gas (Liters)',
+                data: ["500"],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)'
+                ],
+                borderWidth: 1
+            },{
+                label: 'Plastic (Pounds)',
+                data: ["185"],
+                backgroundColor: [
+                    'rgba(54, 162, 235, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(54, 162, 235, 1)'
+                ],
+                borderWidth: 1
+            },{
+                label: 'Electricity (Kwh)',
+                data: ["150"],
+                backgroundColor: [
+                    'rgba(255, 156, 36, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255, 156, 36, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    });
 
-  <script src="../js/main.js"></script>
-  </body>
+  </script>
+
+</body>
 </html>

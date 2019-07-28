@@ -8,8 +8,20 @@
 
 <body>
 
+  <div class="body2">
+    <div class="topOfPage">
+        <div class="divWithBulb">
+          <a href="/home"><h1>GET <span>GREEN</span></h1></a>
+        </div>
+        <div class="header">
+        <h2>Let's Knock Your Stocks Off</h2>
+      </div>
+        <div>
+          <h4><a class="hoverMe" href="{{signOut}}">Log out</a></h4>
+        </div>
+    </div>
+
     <div class="topPage">
-      <h2>Daily Stock</h2>
         <canvas id="myChart"></canvas>
     </div>
 
@@ -59,13 +71,13 @@
 
     <hr>
 
-  <div class="commentsPortion">
-    <div class="commentMade">
-      <div class="topHolder">
-        <p>{{appUser}}</p>
+    <div class="commentsPortion">
+      <div class="commentMade">
+        <div class="topHolder">
+          <p>{{appUser}}</p>
+        </div>
+        <p>{{comment}}</p>
       </div>
-      <h1>{{comment}}<h1>
-    </div>
     <hr>
     {% if allStockComments %}
       {% for i in allStockComments %}
@@ -81,7 +93,7 @@
     {% endif %}
 
     <form action="/financial" method="post">
-      <textarea name="commment" rows="8" cols="100" placeholder="Comment"></textarea>
+      <textarea name="comment" rows="8" cols="100" placeholder="Comment"></textarea>
       <button type="submit">Submit</button>
     </form>
   </div>

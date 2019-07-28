@@ -49,7 +49,7 @@ ul{
   display: flex;
 }
 
-.divWithBulb{
+.divWithBulb h1{
   color: #FEFDFF;
 }
 
@@ -74,7 +74,7 @@ ul{
 
 .hoverMe:hover{
   background-color: #FEFDFF;
-  color: #3D3B30;
+  color: #3D3B30 !important;
   transition: 0.3s;
 }
 
@@ -351,7 +351,7 @@ ul{
 }
 
 .linksDiv a{
-  color: #3D3B30;
+  color: #EB4511;
   transition: 0.3s;
   font-size: 20px;
 }
